@@ -1,11 +1,11 @@
 import { spawn } from 'child_process';
 import { buildFile } from './build.js';
 
-export async function run(entry: string) {
+export async function run(entry: string, nodeArgs: string[]) {
   try {
     const file = await buildFile(entry);
 
-    const child = spawn('node', [file], {
+    const child = spawn('node', [...nodeArgs, file], {
       stdio: 'inherit',
     });
 
