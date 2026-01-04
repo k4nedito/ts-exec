@@ -10,7 +10,7 @@ This project started after investigating issues with tsx watch mode. Inspired by
 ## TODO
 
 - [x] Node flag passthrough (`--inspect`, `--trace-warnings`, etc.)
-- [ ] Proper signal forwarding (SIGINT, SIGTERM, SIGHUP)
+- [x] Proper signal forwarding (SIGINT, SIGTERM, SIGHUP)
 - [ ] Distinguish build errors vs runtime errors (clear formatting)
 - [ ] Hash-based cache for compiled output
   - [ ] Cache key includes entry path + mtime

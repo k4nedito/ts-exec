@@ -12,22 +12,3 @@ const nodeArgs = [
     ...(separatorIndex === -1 ? [] : rawArgs.slice(separatorIndex + 1))
 ];
 run(entry, nodeArgs);
-// const tsExecArgs = 
-//   separatorIndex === -1
-//   ? rawArgs
-//   : rawArgs.slice(0, separatorIndex)
-// const nodeArgs = 
-//   separatorIndex === -1
-//   ? []
-//   : rawArgs.slice(separatorIndex + 1)
-// const program = new Command();
-// program
-//   .name('ts-exec')
-//   .argument('<entry>')
-//   .option('-w', '--watch', 'Watch mode')
-//   .allowUnknownOption(true)
-//   .allowExcessArguments(false)
-//   .action((entry, options) => {
-//     run(entry, nodeArgs)
-//   })
-// program.parse(['node', 'ts-exec', ...tsExecArgs])
