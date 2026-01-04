@@ -1,32 +1,20 @@
-import { Command } from 'commander';
 import { run } from './run.js';
 
 const rawArgs = process.argv.slice(2)
 const separatorIndex = rawArgs.indexOf("--")
 
-const tsExecArgs = 
-  separatorIndex === -1
-  ? rawArgs
-  : rawArgs.slice(0, separatorIndex)
+const entryIndex = rawArgs.findIndex(arg => !arg.startsWith('-'))
 
-const nodeArgs = 
-  separatorIndex === -1
-  ? []
-  : rawArgs.slice(separatorIndex + 1)
-
-const program = new Command();
-
-program
-  .name('ts-exec')
-  .argument('<entry>')
-  .allowUnknownOption(true)
-  .parse(['node', 'ts-exec', ...tsExecArgs]);
-
-const entry = program.args[0];
-
-if (!entry) {
-  console.error('No entry file specified');
-  process.exit(1);
+if (entryIndex === -1) {
+  console.error("error: missing required arguments <entry>")
+  process.exit(1)
 }
 
-run(entry, nodeArgs);
+const entry = rawArgs[entryIndex]
+
+const nodeArgs = [
+  ...rawArgs.slice(0, entryIndex),
+  ...(separatorIndex === -1 ? [] : rawArgs.slice(separatorIndex + 1))
+]
+
+run(entry, nodeArgs)
