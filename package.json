@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "ts-exec": "bin/ts-exec.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,5 +18,8 @@
     "esbuild": "^0.27.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "commander": "^14.0.2"
   }
 }
