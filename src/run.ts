@@ -1,5 +1,5 @@
 import { spawn } from 'child_process';
-import { buildFile } from './build';
+import { buildFile } from './build.js';
 
 export async function run(entry: string) {
   try {
