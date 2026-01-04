@@ -1,12 +1,19 @@
 import { spawn } from 'child_process';
 import { buildFile } from './build';
 
-export async function buildAndRun(entry: string) {
-  const file = await buildFile(entry);
+export async function run(entry: string) {
+  try {
+    const file = await buildFile(entry);
 
-  const child = spawn('node', [file], {
-    stdio: 'inherit',
-  });
+    const child = spawn('node', [file], {
+      stdio: 'inherit',
+    });
 
-  child.on('exit', code => process.exit(code ?? 0));
+    child.on('exit', code => {
+      process.exit(code ?? 0);
+    });
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
 }
