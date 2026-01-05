@@ -7,7 +7,7 @@ This project started after investigating issues with tsx watch mode. Inspired by
 `pnpm build`
 `pnpm link --global`
 
-## TODO
+## Specs
 
 ### Args
 
@@ -18,6 +18,15 @@ the convention is:
 `ts-exec [node args] [entry file] [ts-exec args]`
 
 so: `ts-exec --inspect index.ts --watch`
+
+### Errors
+
+Two types of erros: `BuildError` and `InternalError`.
+
+Build time errors will be wrapped in proper error formatting while runtime errors will be thrown as is. 
+
+Exit codes are determinstic: `1 - build time / runtime error` and `2 - internal script error`
+
 
 ## TODO
 
