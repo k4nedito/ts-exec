@@ -9,6 +9,18 @@ This project started after investigating issues with tsx watch mode. Inspired by
 
 ## TODO
 
+### Args
+
+`--` is dropped. 
+
+the convention is:
+
+`ts-exec [node args] [entry file] [ts-exec args]`
+
+so: `ts-exec --inspect index.ts --watch`
+
+## TODO
+
 - [x] Node flag passthrough (`--inspect`, `--trace-warnings`, etc.)
 - [x] Proper signal forwarding (SIGINT, SIGTERM, SIGHUP)
 - [ ] Distinguish build errors vs runtime errors (clear formatting)
